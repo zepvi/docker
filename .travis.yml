@@ -10,3 +10,16 @@ before_install:
 
 # script: 
 #   - docker run karthik/docker -- --coverage
+
+deploy:
+ provider: elasticbeanstalk
+ region: "ap-south-1"
+ app: "dockerReact"
+ env: "Dockerreact-env"
+ bucket_name: "elasticbeanstalk-ap-south-1-907470763413"
+ bucket_path: "dockerReact"
+ on:
+  branch: master 
+ access_key_id: $AWS_ACCESS_KEY
+ secret_access_key:
+  secure: "$AWS_SECRET_KEY"
